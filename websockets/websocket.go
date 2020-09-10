@@ -152,7 +152,7 @@ func onOpen(conn *websocket.Conn, r *http.Request, sessionID string, app *app.Ap
 	switch {
 	case strings.TrimSpace(strProtocol) == "":
 		return noProtocolVersionSupplied
-	case protocol != supportedProtocolVersion:
+	case protocol != 5 && protocol != 6 && protocol != 7:
 		return unsupportedProtocolVersion
 	case !app.Enabled:
 		return applicationDisabled
